@@ -1,0 +1,4 @@
+# Source: https://github.com/docker-library/openjdk/issues/158, https://github.com/docker-library/openjdk/issues/323
+FROM openjdk:8-jdk
+RUN echo deb http://deb.debian.org/debian/ stretch main >> /etc/apt/sources.list
+RUN apt-get update && apt-get install -y --no-install-recommends xvfb openjfx=8u111-b14-1 libopenjfx-java=8u111-b14-1 libopenjfx-jni=8u111-b14-1 && rm -rf /var/lib/apt/lists/* && cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar /usr/local/openjdk-8/jre/lib/ext && cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/javafx.properties /usr/local/openjdk-8/jre/lib && cp /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfxswt.jar /usr/local/openjdk-8/jre/lib && cp /usr/lib/jvm/java-8-openjdk-amd64/lib/ant-javafx.jar /usr/local/openjdk-8/lib && cp /usr/lib/jvm/java-8-openjdk-amd64/lib/javafx-mx.jar /usr/local/openjdk-8/lib
